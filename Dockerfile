@@ -6,10 +6,10 @@ RUN apt update && apt install -y \
     libgl1 libglib2.0-0 libsm6 libxext6 libxrender1 \
     && apt clean
 
+RUN git clone https://github.com/OpenTalker/SadTalker.git /SadTalker
+
 # 작업 디렉토리 설정
 WORKDIR /app
-
-
 
 # requirements 먼저 복사 (캐시 유지 목적)
 COPY requirements.txt ./
@@ -17,7 +17,6 @@ COPY requirements.txt ./
 # Python 패키지 설치 (캐시됨)
 RUN pip install --upgrade pip \
  && pip install -r requirements.txt
-
 
 
 # 앱 코드 복사 (이 단계만 자주 바뀜)
