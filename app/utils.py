@@ -11,7 +11,7 @@ load_dotenv()  # .env 파일 로드
 
 
 
-def download_models(token: str):
+def download_models():
     token = os.getenv("HF_TOKEN")
     if not token:
         raise ValueError("HF_TOKEN is not set.")
