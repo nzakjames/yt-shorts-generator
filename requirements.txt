@@ -4,7 +4,6 @@ torchvision==0.16.0
 torchaudio
 
 # OpenAI Whisper (음성 → 텍스트)
-git+https://github.com/openai/whisper.git
 transformers
 openai
 

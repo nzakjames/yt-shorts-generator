@@ -34,6 +34,14 @@ def download_models():
             "url": "https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00109-model.pth.tar",
             "min_size": 10000000
         }
+        "auido2pose_00140-model.pth": {
+            "url": "https://huggingface.co/camenduru/SadTalker/resolve/main/auido2pose_00140-model.pth",
+            "min_size": 90_000_000
+        },
+        "auido2exp_00300-model.pth": {
+            "url": "https://huggingface.co/camenduru/SadTalker/resolve/main/auido2exp_00300-model.pth",
+            "min_size": 30_000_000
+},
     }
 
 
