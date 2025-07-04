@@ -8,4 +8,4 @@ pydub
 requests
 git+https://github.com/openai/whisper.git
 runpod
-numpy
+numpy==1.26.4
