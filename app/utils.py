@@ -30,10 +30,6 @@ def download_models():
             "url": "https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/wav2lip.pth",
             "min_size": 200000000
         },
-        "epoch_20.pth": {
-            "url": "https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/epoch_20.pth",
-            "min_size": 300000000
-        },
         "mapping_00109-model.pth.tar": {
             "url": "https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00109-model.pth.tar",
             "min_size": 10000000
