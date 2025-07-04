@@ -9,3 +9,9 @@ requests
 git+https://github.com/openai/whisper.git
 runpod
 numpy==1.26.4
+opencv-python-headless
+scipy
+imageio
+Pillow
+gfpgan
+face-alignment
