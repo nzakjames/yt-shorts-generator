@@ -4,6 +4,7 @@ from app.whisper_wrapper import transcribe_audio
 from app.sad_talker_wrapper import generate_talking_video
 from app.video_finalizer import combine_video_audio_subtitles
 from app.utils import download_image
+from download import download_models
 
 print("✅ handler.py 시작됨")
 
@@ -19,7 +20,12 @@ def handler(event):
         print("💤 헬스체크 요청 감지됨 또는 input 누락 → 종료")
         return {"status": "ok (healthcheck)"}
 
+
+
     try:
+        # ✅ 모델 다운로드 (이미 다운로드된 경우 생략됨)
+        download_models()
+
         inputs = event.get("input", {})
         if not isinstance(inputs, dict):
             raise ValueError("input 필드가 dict 타입이 아닙니다.")
