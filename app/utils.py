@@ -24,7 +24,7 @@ def download_models():
         },
         "epoch_20/G_ema.pth": {
             "url": "https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/epoch_20.pth",
-            "min_size": 300000000
+            "min_size": 200000000
         },
         "wav2lip/wav2lip.pth": {
             "url": "https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/wav2lip.pth",
