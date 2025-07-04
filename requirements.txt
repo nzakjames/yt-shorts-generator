@@ -1,0 +1,10 @@
+openai
+torch==2.1.0
+torchvision==0.16.0
+torchaudio
+transformers
+ffmpeg-python
+pydub
+requests
+git+https://github.com/openai/whisper.git
+runpod

@@ -1,0 +1,53 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.env/
+.venv/
+env/
+.env
+*.egg-info/
+
+# VSCode settings (optional)
+.vscode/
+
+# Model weights & checkpoints
+SadTalker/checkpoints/
+SadTalker/tmp/
+SadTalker/results/
+SadTalker/examples/
+SadTalker/logs/
+
+# Whisper cache
+~/.cache/whisper/
+.whisper/
+
+# PyTorch cache
+~/.cache/torch/
+~/.torch/
+
+# RunPod temp
+/tmp/
+workspace/artifacts/
+*.mp4
+*.wav
+*.mp3
+*.srt
+*.jpg
+*.png
+
+# Logs
+*.log
+
+# MacOS system files
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Output folders
+output/
+artifacts/
