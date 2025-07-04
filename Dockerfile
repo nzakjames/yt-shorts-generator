@@ -16,7 +16,7 @@ COPY requirements.txt ./
 
 # Python 패키지 설치 (캐시됨)
 RUN pip install --upgrade pip \
- && pip install -r requirements.txt
+ && pip install -r requirements.txt \
  && pip install git+https://github.com/openai/whisper.git
 
 
