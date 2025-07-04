@@ -4,7 +4,7 @@ from app.whisper_wrapper import transcribe_audio
 from app.sad_talker_wrapper import generate_talking_video
 from app.video_finalizer import combine_video_audio_subtitles
 from app.utils import download_image
-from download import download_models
+from app.utils import download_models
 
 print("✅ handler.py 시작됨")
 
