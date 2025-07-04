@@ -16,31 +16,28 @@ def download_models():
     if not token:
         raise ValueError("HF_TOKEN is not set.")
 
-    models = {
-        "gfpgan/GFPGANv1.4.pth": {
-            "url": "https://huggingface.co/lj1995/SadTalker/resolve/main/GFPGANv1.4.pth",
-            "min_size": 100_000_000
-        },
-        "pose_detector/pose_model.pth": {
-            "url": "https://huggingface.co/lj1995/SadTalker/resolve/main/pose_model.pth",
-            "min_size": 30_000_000
-        },
-        "epoch_20/G_ema.pth": {
-            "url": "https://huggingface.co/lj1995/SadTalker/resolve/main/G_ema.pth",
-            "min_size": 300_000_000
-        },
-        "wav2lip/wav2lip.pth": {
-            "url": "https://huggingface.co/lj1995/SadTalker/resolve/main/wav2lip.pth",
-            "min_size": 200_000_000
-        },
-        "epoch_20.pth": {
-            "url": "https://huggingface.co/lj1995/SadTalker/resolve/main/epoch_20.pth",
-            "min_size": 300_000_000
-        },
-        "mapping_00109-model.pth.tar": {
-            "url": "https://huggingface.co/lj1995/SadTalker/resolve/main/mapping_00109-model.pth.tar",
-            "min_size": 10_000_000
-        }
+    models = 
+    {
+      "gfpgan/GFPGANv1.4.pth": {
+        "url": "https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth",
+        "min_size": 100000000
+      },
+      "epoch_20/G_ema.pth": {
+        "url": "https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/epoch_20.pth",
+        "min_size": 300000000
+      },
+      "wav2lip/wav2lip.pth": {
+        "url": "https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/wav2lip.pth",
+        "min_size": 200000000
+      },
+      "epoch_20.pth": {
+        "url": "https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/epoch_20.pth",
+        "min_size": 300000000
+      },
+      "mapping_00109-model.pth.tar": {
+        "url": "https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00109-model.pth.tar",
+        "min_size": 10000000
+      }
     }
 
     for path, info in models.items():
