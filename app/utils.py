@@ -114,7 +114,7 @@ def install_korean_font():
         print("📁 Installing NanumGothic font...")
         subprocess.run([
             "wget", "-O", font_path,
-            "https://github.com/fonts-archive/NanumGothic/raw/main/NanumGothic.ttf"
+            "https://raw.githubusercontent.com/fonts-archive/NanumGothic/main/NanumGothic.ttf"
         ], check=True)
 
         subprocess.run(["fc-cache", "-f", "-v"], check=True)
