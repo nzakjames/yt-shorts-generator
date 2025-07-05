@@ -41,7 +41,12 @@ def download_models():
         "auido2exp_00300-model.pth": {
             "url": "https://huggingface.co/camenduru/SadTalker/resolve/main/auido2exp_00300-model.pth",
             "min_size": 30_000_000
-},
+        },
+        "facevid2vid_00189-model.pth.tar": {
+            "url": "https://huggingface.co/camenduru/SadTalker/resolve/main/facevid2vid_00189-model.pth.tar",
+            "min_size": 2_000_000_000  # 대략적 크기 기준
+        }
+
     }
 
 
