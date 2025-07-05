@@ -33,7 +33,7 @@ def handler(event):
         install_korean_font()
 
         # ✅ 모델 다운로드 (이미 다운로드된 경우 생략됨)
-        download_models()
+        #download_models()
 
         inputs = event.get("input", {})
         if not isinstance(inputs, dict):
