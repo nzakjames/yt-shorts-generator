@@ -43,3 +43,6 @@ gradio
 
 # 실행 환경
 runpod
+
+google-cloud-storage
+

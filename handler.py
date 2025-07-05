@@ -6,6 +6,11 @@ from app.video_finalizer import combine_video_audio_subtitles
 from app.utils import download_image
 from app.utils import download_models
 
+import base64
+from google.cloud import storage
+from datetime import timedelta
+
+
 print("✅ handler.py 시작됨")
 
 
@@ -67,18 +72,46 @@ def handler(event):
         final_video_path = combine_video_audio_subtitles(video_path, audio_path, subtitle_path, work_dir)
         print(f"✅ 최종 영상 생성 완료: {final_video_path}")
 
-        ### 로컬 테스트에서는 제외
-        # 6. RunPod artifact로 복사
-        artifact_dir = "/workspace/artifacts"
-        os.makedirs(artifact_dir, exist_ok=True)
-        output_filename = f"{session_id}.mp4"
-        artifact_path = os.path.join(artifact_dir, output_filename)
-        shutil.copy(final_video_path, artifact_path)
-        print(f"📤 아티팩트 복사 완료: {artifact_path}")
 
+
+        #### 6. GCS 업로드 및 Signed URL 생성
+        # 1. 환경변수에서 base64 읽기
+        gcs_key_b64 = os.environ.get("GCS_KEY_B64")
+        if not gcs_key_b64:
+            raise RuntimeError("환경변수 GCS_KEY_B64가 설정되지 않았습니다.")
+
+        # 2. base64 decode하여 임시 파일로 저장
+        gcs_key_path = "/tmp/gcs-key.json"
+        with open(gcs_key_path, "wb") as f:
+            f.write(base64.b64decode(gcs_key_b64))
+
+        # 3. GCS 클라이언트 생성
+        client = storage.Client.from_service_account_json(gcs_key_path)
+
+        # 4. 업로드 대상 버킷 및 경로 설정
+        bucket = client.bucket("my-video-bucket-202507")  # ← 실제 버킷명 입력
+        object_name = f"runpod_outputs/{session_id}.mp4"  # 원하는 경로/이름
+        blob = bucket.blob(object_name)
+
+        # 5. 영상 파일 업로드
+        blob.upload_from_filename(final_video_path)
+        print(f"✅ GCS 업로드 완료: gs://{bucket.name}/{object_name}")
+
+        # 6. Signed URL 생성
+        signed_url = blob.generate_signed_url(
+            version="v4",
+            expiration=timedelta(hours=1),
+            method="GET"
+        )
+        print("🔗 Signed URL:", signed_url)
+
+        # 7. 응답 반환
         return {
-            "video_url": f"/artifacts/{output_filename}"
+            "video_url": signed_url
         }
+
+
+
 
     except Exception as e:
         print(f"❌ 예외 발생: {type(e).__name__}: {str(e)}")
