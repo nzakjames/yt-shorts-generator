@@ -103,6 +103,9 @@ def download_image(url, output_dir):
 
 
 
+
+
+
 def install_korean_font():
     fonts_dir = "/root/.fonts"
     os.makedirs(fonts_dir, exist_ok=True)
