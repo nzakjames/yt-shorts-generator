@@ -5,11 +5,12 @@ from app.sad_talker_wrapper import generate_talking_video
 from app.video_finalizer import combine_video_audio_subtitles
 from app.utils import download_image
 from app.utils import download_models
+from app.utils import install_korean_font
 
 import base64
 from google.cloud import storage
 from datetime import timedelta
-from utils import install_korean_font
+
 
 print("✅ handler.py 시작됨")
 
