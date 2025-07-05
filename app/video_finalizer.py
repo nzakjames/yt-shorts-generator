@@ -17,7 +17,8 @@ def combine_video_audio_subtitles(video_path, audio_path, subtitle_path, output_
             "ffmpeg", "-y",
             "-i", video_path,
             "-i", audio_path,
-            "-vf", f"subtitles={shlex.quote(subtitle_path)}:force_style='FontName=NanumGothic,Fontsize=32,Alignment=2',scale=720:720,pad=720:1280:0:280",
+            "-vf", 
+            f"subtitles={shlex.quote(subtitle_path)}:charenc=UTF-8:fontsdir=/root/.fonts:force_style='FontName=NanumGothic,Fontsize=32,Alignment=2',scale=720:720,pad=720:1280:0:280",
             "-c:v", "libx264", "-c:a", "aac",
             final_path
         ]

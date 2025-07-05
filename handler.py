@@ -9,7 +9,7 @@ from app.utils import download_models
 import base64
 from google.cloud import storage
 from datetime import timedelta
-
+from utils import install_korean_font
 
 print("✅ handler.py 시작됨")
 
@@ -28,6 +28,9 @@ def handler(event):
 
 
     try:
+
+        install_korean_font()
+
         # ✅ 모델 다운로드 (이미 다운로드된 경우 생략됨)
         download_models()
 
@@ -107,9 +110,9 @@ def handler(event):
 
         # 7. 응답 반환
         return {
+            "message": f"✅ GCS 업로드 완료: gs://{bucket.name}/{object_name}",
             "video_url": signed_url
         }
-
 
 
 

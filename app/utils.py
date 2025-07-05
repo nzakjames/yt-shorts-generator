@@ -98,3 +98,28 @@ def download_image(url, output_dir):
         f.write(response.content)
 
     return img_path
+
+
+
+
+
+def install_korean_font():
+    fonts_dir = "/root/.fonts"
+    os.makedirs(fonts_dir, exist_ok=True)
+
+    font_path = os.path.join(fonts_dir, "NanumGothic.ttf")
+
+    # 이미 설치된 경우 생략
+    if not os.path.exists(font_path):
+        print("📁 Installing NanumGothic font...")
+        subprocess.run([
+            "wget", "-O", font_path,
+            "https://github.com/naver/nanumfont/blob/master/ttf/NanumGothic.ttf?raw=true"
+        ], check=True)
+
+        subprocess.run(["fc-cache", "-f", "-v"], check=True)
+        print("✅ Font installed.")
+    else:
+        print("✅ Font already exists.")
+
+    
