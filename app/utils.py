@@ -22,7 +22,7 @@ def download_models():
             "url": "https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth",
             "min_size": 100000000
         },
-        "epoch_20/G_ema.pth": {
+        "epoch_20.pth": {
             "url": "https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/epoch_20.pth",
             "min_size": 200000000
         },
