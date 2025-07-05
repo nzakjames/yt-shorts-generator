@@ -9,6 +9,20 @@ RUN apt update && apt install -y \
 
 RUN git clone https://github.com/OpenTalker/SadTalker.git /SadTalker
 
+
+# 모델 다운로드 (checkpoints 폴더에 경로 맞춰 저장)
+RUN mkdir -p /SadTalker/checkpoints/gfpgan /SadTalker/checkpoints/wav2lip && \
+    cd /SadTalker/checkpoints && \
+    wget --timeout=60 --tries=3 --continue -O gfpgan/GFPGANv1.4.pth https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth && \
+    wget --timeout=60 --tries=3 --continue -O epoch_20.pth https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/epoch_20.pth && \
+    wget --timeout=60 --tries=3 --continue -O wav2lip/wav2lip.pth https://github.com/Winfredy/SadTalker/releases/download/v0.0.2/wav2lip.pth && \
+    wget --timeout=60 --tries=3 --continue -O mapping_00109-model.pth.tar https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00109-model.pth.tar && \
+    wget --timeout=60 --tries=3 --continue -O auido2pose_00140-model.pth https://huggingface.co/camenduru/SadTalker/resolve/main/auido2pose_00140-model.pth && \
+    wget --timeout=60 --tries=3 --continue -O auido2exp_00300-model.pth https://huggingface.co/camenduru/SadTalker/resolve/main/auido2exp_00300-model.pth && \
+    wget --timeout=60 --tries=3 --continue -O facevid2vid_00189-model.pth.tar https://huggingface.co/camenduru/SadTalker/resolve/main/facevid2vid_00189-model.pth.tar
+
+
+
 # 작업 디렉토리 설정
 WORKDIR /app
 
