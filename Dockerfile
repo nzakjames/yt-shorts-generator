@@ -32,7 +32,9 @@ COPY requirements.txt ./
 # Python 패키지 설치 (캐시됨)
 RUN pip install --upgrade pip \
  && pip install -r requirements.txt \
- && pip install git+https://github.com/openai/whisper.git
+ && pip install git+https://github.com/openai/whisper.git \ 
+ && python -c "import whisper; whisper.load_model('tiny')"
+
 
 # 앱 코드 복사 (이 단계만 자주 바뀜)
 COPY . /app
